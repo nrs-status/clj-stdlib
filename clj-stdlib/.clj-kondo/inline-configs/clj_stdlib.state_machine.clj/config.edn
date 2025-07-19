@@ -1,0 +1,1 @@
+{:lint-as {clj-stdlib.state-machine/defsig clojure.core/def, clj-stdlib.state-machine/defsfn clj-kondo.lint-as/def-catch-all, clj-stdlib.state-machine/defsfn* clj-kondo.lint-as/def-catch-all}, :config-in-call {clj-stdlib.state-machine/sfn {:ignore [:unresolved-symbol :type-mismatch]}, clj-stdlib.state-machine/sfn* {:ignore [:unresolved-symbol :type-mismatch]}}}
