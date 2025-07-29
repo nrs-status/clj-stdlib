@@ -1,19 +1,16 @@
 (ns clj-stdlib.fp)
 
 (def tuplize
-  (fn [n target]
-    (let
-     [identical-target-copies (repeat n target)
-      numbered-copies (map vector (range n) identical-target-copies)
-      dropping-mapaux (fn [x] (drop (first x) (second x)))
-      dropping (map dropping-mapaux numbered-copies)
-      smallest (last dropping)
-      shaving (map (fn* [%1] (take (count smallest) %1)) dropping)
-      innermap (fn [n] (map (fn* [%1] (nth %1 n)) shaving))
-      outermap (map innermap (range (count smallest)))]
-      outermap)))
+  (fn [n sq]
+    (partition n (apply interleave (map #(drop % sq) (range n))))))
 
-(def enumerate (fn [x] (map vector (range (count x)) x)))
+(def p partial)
+
+(defn enum-intl [sq]
+  (interleave (range) sq))
+
+(defn enum [sq]
+  (partition-all 2 (enum-intl sq)))
 
 (def split-doing (fn [f g target] [(f target) (g target)]))
 (def split-doing# (fn [f g] (partial split-doing f g)))

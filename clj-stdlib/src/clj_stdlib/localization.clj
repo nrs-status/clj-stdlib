@@ -209,12 +209,12 @@
                    (reset! %2 nil)))
             (map singleton x)))))
 
-(def mk-zones-of-sym-seq-mod-intermediates
-  (fn [sym-seq-preds intermediate-pred target]
-    (let [enum'd (enumerate target)
-          relevant? #(some true? (map (fn [sym] (% sym)) sym-seq-preds))
-          filtering
-          ]
+; (def mk-zones-of-sym-seq-mod-intermediates
+;   (fn [sym-seq-preds intermediate-pred target]
+;     (let [enum'd (enumerate target)
+;           relevant? #(some true? (map (fn [sym] (% sym)) sym-seq-preds))
+;           filtering
+;           ]
 
 (def mk-zones-of-sym-seq-mod-irrel
   (fn [sym-seq target]
