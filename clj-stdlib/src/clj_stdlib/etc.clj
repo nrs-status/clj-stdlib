@@ -17,8 +17,9 @@
       (doseq [[kw target] splitting]
         (s/assert (keyword "specs" (apply str (rest (str kw)))) target)))))
 
-
-
+(def take-while-inclusive
+  (fn [pred sq]
+    (concat (take-while pred sq) (seq [(first (drop-while pred sq))]))))
 
 (defn split-w-index-list [target is]
   (! :vec target)

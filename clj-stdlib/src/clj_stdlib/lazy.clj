@@ -18,3 +18,11 @@
      (when-let [nxt (first (drop-while p (r-nbds sq)))]
        (cons nxt (this p (rest nxt)))))))
 
+(def non-overlapping
+  (fn this [count-mod sq]
+    (lazy-seq
+     (when-let [s (seq sq)]
+       (let [fst-len (count-mod (count (first s)))]
+         (cons (first s) (this count-mod (drop fst-len (rest s)))))))))
+
+
